@@ -56,15 +56,36 @@ This project provides a digital healthcare management system where patient recor
 
 ## 📂 Project Structure
 
-HealthDiagnosis/
+## 📁 Project Structure
 
-├── app.py
-├── templates/
-│   └── index.html
-├── static/
-│   └── css/
-│       └── style.css
-└── README.md
+```text
+HealthAssistant/
+│
+├── public/                
+├── src/                    
+│   ├── components/        
+│   ├── data/               
+│   ├── engine/             
+│   ├── services/           
+│   ├── App.tsx             
+│   ├── main.tsx            
+│   ├── index.css           
+│   └── types.ts
+│
+├── app.py                  
+├── database.py             
+├── diagnosis.py            
+├── speech.py              
+│
+├── .env                    
+├── index.html              
+├── metadata.json          
+├── package.json           
+├── package-lock.json      
+├── requirements.txt        
+├── tsconfig.json         
+├── vite.config.ts         
+└── README.md               
 
 ---
 
