@@ -1,0 +1,6 @@
+{
+  "name": "HealthAI Assistant",
+  "description": "An interactive AI health symptom checker and pattern assistant with speech-to-text, voice synthesis, and symptom history.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
