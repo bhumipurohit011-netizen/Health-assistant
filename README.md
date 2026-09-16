@@ -1,175 +1,309 @@
-# HealthDiagnosis - Health Diagnosis & Appointment Management System
+# 🤖 HealthAssistant
 
-## 📌 Project Overview
+HealthAssistant is a web-based AI Health Diagnosis Assistant that helps users understand their symptoms through an interactive and user-friendly platform.
 
-HealthDiagnosis is a healthcare management system developed using Python, Flask, MySQL, and MongoDB.
+The application allows users to enter symptoms using text or speech and provides possible symptom patterns, risk indications, and general health guidance.
 
-The main purpose of this project is to help users manage patient information, symptoms, diagnosis records, and appointments through an interactive web application.
-
-This project demonstrates both SQL and NoSQL database connectivity.
-
----
-
-## 🎯 Problem Statement
-
-Managing patient information, health records, and appointments manually can be time-consuming and difficult.
-
-This project provides a digital healthcare management system where patient records and appointment details can be stored, managed, and accessed easily.
+It combines healthcare assistance, rule-based diagnosis logic, and speech functionality into one platform designed for educational purposes.
 
 ---
 
 ## 🚀 Features
 
-- Patient Registration
-- Health Diagnosis Management
-- Appointment Booking
-- View Patient Records
-- Update Patient Information
-- Delete Records
-- MySQL Database Connectivity
-- MongoDB Database Connectivity
-- Interactive Web Interface
+- 🩺 **AI Health Symptom Checker** — Enter symptoms and view possible symptom patterns.
+- ⌨️ **Text-Based Input** — Enter symptoms using text.
+- 🎤 **Speech Recognition** — Enter symptoms using voice input.
+- 🔊 **Text-to-Speech** — Listen to health-related responses.
+- 🧠 **Diagnosis Engine** — Match symptoms using rule-based logic.
+- ⚠️ **Risk Indications** — Display possible severity or risk information.
+- 📋 **Health Check History** — View previous health checks.
+- 👤 **User Authentication** — Signup and login functionality.
+- 👤 **User Profile** — Manage user-related information.
+- 📱 **Responsive UI** — User-friendly interface for different screen sizes.
+- ⚕️ **Medical Disclaimer** — Provides educational guidance and encourages professional consultation.
 
 ---
 
-## 🛠️ Technologies Used
+## 🧩 System Architecture
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
+```text
+┌──────────────────┐
+│       USER       │
+└────────┬─────────┘
+         │
+         ▼
+┌──────────────────────┐
+│   REACT FRONTEND     │
+│   TypeScript + Vite  │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│    FLASK BACKEND     │
+│       Python         │
+└──────────┬───────────┘
+           │
+     ┌─────┴──────┐
+     ▼            ▼
+┌──────────┐ ┌──────────────┐
+│ Diagnosis│ │  Database    │
+│  Engine  │ │ Operations   │
+└────┬─────┘ └──────┬───────┘
+     │              │
+     └──────┬───────┘
+            ▼
+┌──────────────────────┐
+│  Health Guidance     │
+│  and Results         │
+└──────────────────────┘
+```
 
-### Backend
-- Python
-- Flask
+---
 
-### Databases
-- MySQL (SQL Database)
-- MongoDB (NoSQL Database)
+## 🔄 Application Workflow
 
-### Development Tools
-- Visual Studio Code
-- MySQL
-- MongoDB
+```text
+              ┌──────────────────┐
+              │      START       │
+              └────────┬─────────┘
+                       ↓
+           ┌──────────────────────┐
+           │   Signup / Login     │
+           └──────────┬───────────┘
+                      ↓
+             ◇ Authentication ◇
+                /          \
+              No            Yes
+              ↓              ↓
+           Login      ┌─────────────┐
+                      │  Dashboard  │
+                      └──────┬──────┘
+                             ↓
+                  ┌──────────────────┐
+                  │ Enter Symptoms   │
+                  │ Text / Speech   │
+                  └────────┬─────────┘
+                           ↓
+                  ┌──────────────────┐
+                  │ Symptom Matching │
+                  │ Diagnosis Engine │
+                  └────────┬─────────┘
+                           ↓
+                  ┌──────────────────┐
+                  │ Possible Symptom │
+                  │    Pattern       │
+                  └────────┬─────────┘
+                           ↓
+                  ┌──────────────────┐
+                  │ Risk Indication  │
+                  │ and Guidance     │
+                  └────────┬─────────┘
+                           ↓
+                  ┌──────────────────┐
+                  │ Save/View History│
+                  └──────────────────┘
+```
 
 ---
 
 ## 📂 Project Structure
 
-## 📁 Project Structure
-
 ```text
 HealthAssistant/
 │
-├── public/                
-├── src/                    
-│   ├── components/        
-│   ├── data/               
-│   ├── engine/             
-│   ├── services/           
-│   ├── App.tsx             
-│   ├── main.tsx            
-│   ├── index.css           
-│   └── types.ts
+├── public/                      # Public assets
 │
-├── app.py                  
-├── database.py             
-├── diagnosis.py            
-├── speech.py              
+├── src/                         # Frontend source code
+│   ├── components/              # React components
+│   ├── data/                    # Symptoms and health data
+│   ├── engine/                  # Diagnosis engine
+│   ├── services/                # Speech and storage services
+│   ├── App.tsx                  # Main React component
+│   ├── main.tsx                 # Application entry point
+│   ├── index.css                # Global styling
+│   └── types.ts                 # TypeScript type definitions
 │
-├── .env                    
-├── index.html              
-├── metadata.json          
-├── package.json           
-├── package-lock.json      
-├── requirements.txt        
-├── tsconfig.json         
-├── vite.config.ts         
-└── README.md               
+├── app.py                       # Flask backend
+├── database.py                  # Database operations
+├── diagnosis.py                 # Diagnosis logic
+├── speech.py                    # Speech functionality
+│
+├── .env                         # Environment variables
+├── index.html                   # Main HTML file
+├── metadata.json                # Project metadata
+├── package.json                 # Frontend dependencies
+├── package-lock.json            # Dependency lock file
+├── requirements.txt             # Python dependencies
+├── tsconfig.json                # TypeScript configuration
+├── vite.config.ts               # Vite configuration
+└── README.md                    # Project documentation
+```
 
 ---
 
-## ⚙️ How to Run the Project
+## ⚙️ Installation
 
-### Step 1: Install Python
+### 1. Clone Repository
 
-Install Python on your computer.
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+cd HealthAssistant
+```
 
-### Step 2: Install Required Libraries
+### 2. Install Frontend Dependencies
 
-Open the terminal and run:
+```bash
+npm install
+```
 
-pip install flask mysql-connector-python pymongo
+### 3. Install Python Dependencies
 
-### Step 3: Start MySQL
+```bash
+pip install -r requirements.txt
+```
 
-Make sure your MySQL database is running.
+---
 
-Create the required database and tables.
+## 🔐 Configure Environment Variables
 
-### Step 4: Start MongoDB
+Create a `.env` file in the project root if your application requires environment variables.
 
-Make sure MongoDB is running and configured.
+Example:
 
-### Step 5: Run the Flask Application
+```env
+# Add your required environment variables here
+```
 
-Open the project folder in VS Code.
+> Do not upload private API keys or sensitive information to GitHub.
 
-Run:
+---
 
+## ▶️ Run the Project
+
+### Start Frontend
+
+```bash
+npm run dev
+```
+
+Open the URL displayed in the terminal.
+
+Usually, Vite runs on:
+
+```text
+http://localhost:5173
+```
+
+### Start Flask Backend
+
+Open another terminal and run:
+
+```bash
 python app.py
+```
 
-### Step 6: Open the Website
+The Flask backend usually runs on:
 
-Open your browser and visit:
-
+```text
 http://127.0.0.1:5000
+```
 
 ---
 
-## 🗄️ Database Connectivity
+## 🛠️ Technologies Used
 
-### MySQL
+### 1. Frontend
 
-MySQL is used to store structured information such as:
+- React
+- TypeScript
+- Vite
+- HTML5
+- CSS3
+- JavaScript
 
-- Patient Details
-- Appointment Details
-- Doctor Information
+### 2. Backend
 
-### MongoDB
+- Python
+- Flask
+- Flask-CORS
 
-MongoDB is used as a NoSQL database for storing diagnosis-related records.
+### 3. Diagnosis Engine
 
-The project demonstrates connectivity with both SQL and NoSQL databases.
+- Rule-Based Symptom Matching
+- Python Diagnosis Logic
+
+### 4. Speech Functionality
+
+- Speech Recognition
+- Text-to-Speech
+- Web Speech API
+
+### 5. Database
+
+- Database module used in the project
+- Local storage and/or configured database
+
+---
+
+## 🎯 Use Cases
+
+- 🩺 Basic Symptom Checking
+- 🎤 Voice-Based Symptom Input
+- 📋 Health Check History
+- 🧠 Educational Diagnosis Assistance
+- ⚠️ General Health Guidance
+- 👤 User Health Interaction
+
+---
+
+## 🔮 Future Improvements
+
+- 🤖 Advanced AI-Based Diagnosis Assistance
+- 📱 Mobile Application
+- 🏥 Doctor Consultation Integration
+- 📊 Health Analytics Dashboard
+- 🌐 Multilingual Support
+- 🔔 Health Reminder Notifications
+- 📄 Downloadable Health Reports
+- 🧬 Improved Symptom Analysis
 
 ---
 
 ## 🎓 Academic Purpose
 
-This project is developed as part of a DBMS project submission.
+This project is developed for educational and academic purposes.
 
 It demonstrates:
 
 - Frontend Development
-- Backend Development
-- SQL Connectivity
-- NoSQL Connectivity
-- Database Management
+- React and TypeScript
+- Python Flask Backend
+- Rule-Based Diagnosis
+- Speech Recognition
+- Database Concepts
 - Web Application Development
+- GitHub Project Management
 
 ---
 
-## ⚠️ Disclaimer
+## ⚠️ Medical Disclaimer
 
-This project is developed for educational purposes.
+This application is developed for educational purposes only.
 
-The diagnosis-related information should not be considered a substitute for professional medical advice.
+The results provided by the application represent possible symptom patterns and should not be considered a definitive medical diagnosis.
+
+This application does not replace professional medical advice, diagnosis, or treatment.
+
+Users should consult a qualified healthcare professional for proper medical guidance.
+
+In case of a medical emergency, contact emergency services immediately.
 
 ---
 
 ## 👩‍💻 Developed By
 
-Student Project
+**Student Project**
 
-HealthDiagnosis
+### Project Name
+
+**HealthAssistant – AI Health Diagnosis Assistant**
